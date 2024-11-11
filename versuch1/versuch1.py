@@ -35,6 +35,8 @@ plt.ylabel("Distanz [cm]")
 plt.title("Gemessene Werte")
 plt.show()
 
+print(std_list)
+
 log_voltage_list = np.log(voltage_list)
 log_distance_list = np.log(distance_list)
 
