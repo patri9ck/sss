@@ -1,5 +1,3 @@
-from statistics import linear_regression
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -23,13 +21,13 @@ for file in get_files():
     voltage_list.append(np.mean(voltages))
     std_list.append(np.std(voltages))
 
-plt.plot(voltage_list, distance_list, color="green")
+plt.scatter(voltage_list, distance_list, color="green")
 plt.xlabel("Spannung [mV]")
 plt.ylabel("Distanz [cm]")
 plt.title("Mittelwerte")
 plt.show()
 
-plt.plot(measured_voltage_list, distance_list, color="blue")
+plt.scatter(measured_voltage_list, distance_list, color="blue")
 plt.xlabel("Spannung [mV]")
 plt.ylabel("Distanz [cm]")
 plt.title("Gemessene Werte")
@@ -57,6 +55,7 @@ offset = distance_mean - (voltage_mean * gradient)
 linear_regression_distance = gradient * log_voltage_list + offset
 
 plt.plot(log_voltage_list, linear_regression_distance, color="red")
+plt.scatter(log_voltage_list, log_distance_list, color="red")
 plt.xlabel("log(Spannung) [log(mV)]")
 plt.ylabel("log(Distanz) [log(cm)]")
 plt.title("Lineare Regression")
@@ -65,6 +64,7 @@ plt.show()
 non_linear_regression_distance = np.exp(offset) * np.power(voltage_list, gradient)
 
 plt.plot(voltage_list, non_linear_regression_distance)
+plt.scatter(voltage_list, distance_list)
 plt.xlabel("Spannung [mV]")
 plt.ylabel("Distanz [cm]")
 plt.title("Nicht-lineare Regression")
