@@ -80,8 +80,8 @@ print(f"s(Spannung Länge) = {length_voltage_std}")
 width_mean = np.mean(width_voltage_list)
 length_mean = np.mean(length_voltage_list)
 
-correction_68 = 1.03
-correction_95 = 2.09
+correction_68 = 1.0
+correction_95 = 1.96
 
 width_voltage_mean_std = width_voltage_std / np.sqrt(len(width_voltage_list))
 length_voltage_mean_std = length_voltage_std / np.sqrt(len(length_voltage_list))
