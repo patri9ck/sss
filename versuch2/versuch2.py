@@ -10,7 +10,6 @@ BORDER_TRIM = 40
 IMAGE_AMOUNT = 10
 DARK_PATH = "Bilder/schwarz"
 WHITE_PATH = "Bilder/weiss"
-CORRECTED_WHITE_PATH = "Bilder/weiss-korrigiert.png"
 
 
 def get_columns(image):
