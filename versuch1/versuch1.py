@@ -88,6 +88,9 @@ correction_95 = 1.96
 width_voltage_mean_std = width_voltage_std / np.sqrt(len(width_voltage_list))
 length_voltage_mean_std = length_voltage_std / np.sqrt(len(length_voltage_list))
 
+print(width_voltage_mean_std)
+print(length_voltage_mean_std)
+
 print(f"U(Breite) = {width_mean} +/- {correction_95} * {width_voltage_mean_std} V")
 print(f"(Länge) = {length_mean} +/- {correction_95} * {length_voltage_mean_std} V")
 

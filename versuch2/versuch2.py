@@ -79,9 +79,8 @@ show_image(contrast_dark_image.astype(np.uint8))
 
 white_image = get_mean_image(WHITE_PATH)
 subtracted_white_image = white_image - dark_image
-contrast_white_image = subtracted_white_image / 255
 
-show_image(contrast_white_image.astype(np.uint8))
+show_image(white_image.astype(np.uint8))
 
 standardized_white_image = subtracted_white_image / white_image.mean()
 
