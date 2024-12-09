@@ -38,7 +38,7 @@ grundfrequenz = 1 / grundperiode
 abtastfrequenz = 1 / (zeit[500] - zeit[499])
 
 print("Signaldauer: ", signaldauer, "(ms)")
-print("Signallänge M", signallaenge, " Samples")
+print("Signallänge M: ", signallaenge, " Samples")
 print("Grundfrequenz: ", grundfrequenz, "(kHz)")
 print("Grundperiode: ", grundperiode, "(ms)")
 print("Abtastfrequenz: ", abtastfrequenz, "(kHz)")
@@ -86,25 +86,25 @@ phase_shift_klein = np.array([6888, 2147, 1166, 639.2, 31.85, 1276, 963.1, 785.4
 
 plt.figure(figsize=(10, 6))
 plt.plot(frequencies_gross, phase_shift_gross)
-plt.title("Phasengang großer Lautsprecher")
+plt.title("Schaubild großer Lautsprecher")
 plt.xlabel("Frequenz (Hz)")
-plt.ylabel("Phase (deg)")
+plt.ylabel("micro s")
 plt.grid()
 plt.show()
 
 plt.figure(figsize=(10, 6))
 plt.plot(frequencies_klein, phase_shift_klein)
-plt.title("Phasengang kleiner Lautsprecher")
+plt.title("Schaubild kleiner Lautsprecher")
 plt.xlabel("Frequenz (Hz)")
-plt.ylabel("Phase (deg)")
+plt.ylabel("micro s")
 plt.grid()
 plt.show()
 
-phase_response_gross = phase_shift_gross * -1  * frequencies_gross * 360
-phase_response_klein = phase_shift_klein * -1 * frequencies_klein * 360
+phase_response_gross = (phase_shift_gross/1000000) * -1  * frequencies_gross * 360
+phase_response_klein = (phase_shift_klein/1000000) * -1 * frequencies_klein * 360
 
-amplitude_response_gross = b_peak_gross / a_peak_gross
-amplitude_response_klein = b_peak_klein / a_peak_klein
+amplitude_response_gross = 20 * np.log10(b_peak_gross / a_peak_gross)
+amplitude_response_klein = 20 * np.log10(b_peak_klein / a_peak_klein)
 
 plt.subplot(2, 1, 1)
 plt.title("Amplitudengang")
